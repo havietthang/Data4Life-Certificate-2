@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>VNeID — Chi tiết văn bằng (mock)</title>
+<link rel="stylesheet" href="assets/css/vneid-mock.css?v=base">
+</head>
+<body>
+<div class="device">
+
+  <div class="header-bar" style="background:var(--bg)">
+    <a class="back" href="vneid-diplomas.html">←</a>
+    <div class="title">Chi tiết văn bằng</div>
+  </div>
+
+  <div class="section">
+    <div class="card" style="padding:0; overflow:hidden">
+      <div style="background:linear-gradient(135deg,#e8f3ff,#fff); padding:16px">
+        <div style="display:flex; align-items:center; gap:12px">
+          <div style="width:70px;height:70px;border-radius:10px;background:#fff;display:grid;place-items:center;border:1px solid var(--line)">🎓</div>
+          <div>
+            <div id="vb-title" style="font-weight:900; font-size:18px">Văn bằng</div>
+            <div id="vb-issuer" class="muted">Đơn vị cấp</div>
+          </div>
+        </div>
+      </div>
+      <div class="detail" style="padding:0 16px 16px 16px">
+        <div class="kv"><div class="k">Số hiệu</div><div id="vb-code" class="v">—</div></div>
+        <div class="kv"><div class="k">Họ và tên</div><div class="v">HÀ VIỆT THẮNG</div></div>
+        <div class="kv"><div class="k">Ngày cấp</div><div id="vb-date" class="v">—</div></div>
+        <div class="kv"><div class="k">Trạng thái</div><div class="v">Hợp lệ</div></div>
+        <div class="kv"><div class="k">Nơi cấp</div><div id="vb-place" class="v">—</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="muted" style="font-weight:700">Cập nhật lần cuối</div>
+    <div class="muted" id="vb-upd">08:10 13-09-2025</div>
+  </div>
+
+  <div class="section">
+    <div class="list">
+      <a class="item" href="#"><div style="font-size:22px">➡️</div><div class="meta"><div style="font-weight:800">Văn bằng điện tử</div></div><div class="chev">›</div></a>
+      <a class="item" href="#"><div style="font-size:22px">➡️</div><div class="meta"><div style="font-weight:800">Lịch sử thay đổi</div></div><div class="chev">›</div></a>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <a class="navbtn" href="vneid-home.html"><div>🏠</div><small>Trang chủ</small></a>
+    <a class="navbtn active" href="vneid-diplomas.html"><div>🧾</div><small>Ví giấy tờ</small></a>
+    <a class="navbtn" href="#"><div>🧮</div><small>Quét</small></a>
+    <a class="navbtn" href="#"><div>🔔</div><small>Thông báo</small></a>
+    <a class="navbtn" href="#"><div>⚙️</div><small>Cài đặt</small></a>
+  </div>
+
+</div>
+
+<script>
+// simple demo data
+const data = {
+  degree: {
+    title: "Cử nhân Khoa học Máy tính",
+    issuer: "FPT University",
+    code: "CS-2019-000123",
+    date: "30/09/2029",
+    place: "Cần Thơ",
+    upd: "09:15 02-10-2029"
+  },
+  ielts: {
+    title: "Chứng chỉ IELTS 8.0",
+    issuer: "IDP Vietnam",
+    code: "A1-IELTS-248901",
+    date: "10/05/2024",
+    place: "TP. Hồ Chí Minh",
+    upd: "11:02 12-05-2024"
+  },
+  hs: {
+    title: "Bằng tốt nghiệp THPT",
+    issuer: "Sở GD&ĐT Cần Thơ",
+    code: "HS-2023-557812",
+    date: "15/07/2023",
+    place: "Cần Thơ",
+    upd: "08:30 20-07-2023"
+  }
+};
+const id = new URLSearchParams(location.search).get('id') || 'degree';
+const item = data[id];
+if(item){
+  document.getElementById('vb-title').textContent = item.title;
+  document.getElementById('vb-issuer').textContent = item.issuer;
+  document.getElementById('vb-code').textContent = item.code;
+  document.getElementById('vb-date').textContent = item.date;
+  document.getElementById('vb-place').textContent = item.place;
+  document.getElementById('vb-upd').textContent = item.upd;
+}
+</script>
+</body>
+</html>
